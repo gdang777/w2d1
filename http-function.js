@@ -1,4 +1,5 @@
 var https = require('https');
+
 module.exports = function getHtml(options, callback){
 
  var bufferData = "" ;
@@ -7,7 +8,7 @@ module.exports = function getHtml(options, callback){
 
     response.setEncoding('utf8');
 
-    response.on('data', function (data) {
+    response.on('data', function(data) {
       bufferData += data;
     });
 
