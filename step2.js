@@ -5,23 +5,29 @@ var https = require("https");
 //     path: '/http-examples/ste1.html
 // };
 
-function getAndPrintHtmlChunks(){
+
+ function getAndPrintHtml2(){
+
     var requestOptions = {
      host:"sytantris.github.io",
-     path: '/http-examples/step1.html'
+     path: '/http-examples/step2.html'
     };
+
+    var bufferData = "" ;
 
    https.get(requestOptions, function(response){
 
     response.setEncoding('utf8');
 
-    response.on('data', function(data) {
-    console.log(data)
+    response.on('data', function (data) {
+        bufferData += data;
 
   });
 
+
   response.on('end', function(){
-    console.log('response stream complete')
+    console.log('response stream comnplete')
+      console.log(bufferData);
 
   });
 
@@ -29,8 +35,5 @@ function getAndPrintHtmlChunks(){
 
 }
 
-
-
-
-getAndPrintHtmlChunks();
+getAndPrintHtml2();
 
